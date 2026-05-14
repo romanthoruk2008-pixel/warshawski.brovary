@@ -13,8 +13,8 @@ from langchain.schema import HumanMessage, SystemMessage
 # ══════════════════════════════════════════
 # КОНФІГ
 # ══════════════════════════════════════════
-API_TOKEN = os.getenv("8671899772:AAHSxvZ5Lv6WmHdH401W5nd8ecrsci3EoFQ")
-GEMINI_API_KEY = os.getenv("AIzaSyDaGBmEAzbQUD9Q0NjR7Jxj0JWTJwpc54s")
+API_TOKEN = "8671899772:AAHSxvZ5Lv6WmHdH401W5nd8ecrsci3EoFQ"
+GEMINI_API_KEY = "AIzaSyDaGBmEAzbQUD9Q0NjR7Jxj0JWTJwpc54s"
 
 # ══════════════════════════════════════════
 # АГЕНТИ

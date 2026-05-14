@@ -13,8 +13,8 @@ from langchain.schema import HumanMessage, SystemMessage
 # ══════════════════════════════════════════
 # КОНФІГ
 # ══════════════════════════════════════════
-API_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+API_TOKEN = os.getenv("8671899772:AAHSxvZ5Lv6WmHdH401W5nd8ecrsci3EoFQ")
+GEMINI_API_KEY = os.getenv("AIzaSyDaGBmEAzbQUD9Q0NjR7Jxj0JWTJwpc54s")
 
 # ══════════════════════════════════════════
 # АГЕНТИ

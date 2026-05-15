@@ -56,7 +56,7 @@ AGENTS = [
 # ══════════════════════════════════════════
 def get_llm():
     return ChatGoogleGenerativeAI(
-        model="gemini-1.5-flash",
+        model="Gemini-3.1-Flash-Lite",
         google_api_key=GEMINI_API_KEY,
         temperature=0.7,
     )

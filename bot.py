@@ -61,18 +61,20 @@ def get_llm():
         temperature=0.7,
     )
 
-async def ask_agent(agent: dict, conversation: list[dict]) -> str:
-    """Запитує агента з урахуванням всього діалогу."""
+async def ask_agent(agent: dict, topic: str, conversation: list[dict]) -> str:
     llm = get_llm()
     messages = [SystemMessage(content=agent["system"])]
 
-    # Додаємо контекст попередніх повідомлень
     if conversation:
         context = "\n\n".join(
             f"{msg['agent']}: {msg['text']}" for msg in conversation
         )
         messages.append(HumanMessage(
-            content=f"Ось що вже сказали інші агенти:\n\n{context}"
+            content=f"Тема: {topic}\n\nЩо сказали інші:\n\n{context}\n\nТепер твоя черга."
+        ))
+    else:
+        messages.append(HumanMessage(
+            content=f"Тема обговорення: {topic}\n\nПочинай аналіз."
         ))
 
     response = await asyncio.to_thread(llm.invoke, messages)
@@ -109,7 +111,7 @@ async def handle_topic(message: types.Message):
         typing_msg = await message.answer(f"{agent['name']} думає... ✍️")
 
         try:
-            response = await ask_agent(agent, conversation)
+            response = await ask_agent(agent, topic, conversation)
         except Exception as e:
             await typing_msg.delete()
             await message.answer(f"❌ Помилка у агента {agent['name']}: {e}")
